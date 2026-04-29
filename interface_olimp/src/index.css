@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* OLIMP — Brutalist Neon Glass */
+    --background: 240 11% 4%;          /* deep void #070709 */
+    --foreground: 0 0% 100%;
+
+    --matte: 240 8% 7%;                /* #0e0e11 */
+    --acrylic: 0 0% 100%;              /* used with /5 opacity */
+    --chalk: 240 5% 65%;               /* #a1a1aa */
+
+    --card: 240 8% 7%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 240 8% 7%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 271 91% 65%;            /* neon violet #a855f7 */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 271 91% 75%;
+
+    --secondary: 240 6% 12%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 6% 12%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 271 91% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;
+
+    --border: 0 0% 100%;               /* used with /8 opacity via tailwind */
+    --input: 240 6% 14%;
+    --ring: 271 91% 65%;
+
+    --radius: 0.25rem;
+
+    --sidebar-background: 240 8% 7%;
+    --sidebar-foreground: 240 5% 65%;
+    --sidebar-primary: 271 91% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 100%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 240 6% 14%;
+    --sidebar-ring: 271 91% 65%;
+
+    --gradient-neon: linear-gradient(135deg, hsl(271 91% 65%), hsl(285 91% 60%));
+    --gradient-glass: linear-gradient(180deg, hsl(0 0% 100% / 0.04), hsl(0 0% 100% / 0));
+    --shadow-neon: 0 0 24px hsl(271 91% 65% / 0.45);
+    --shadow-neon-soft: 0 0 12px hsl(271 91% 65% / 0.35);
+    --shadow-elevated: 0 24px 48px -12px hsl(0 0% 0% / 0.6);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-white/[0.08];
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    background-image:
+      radial-gradient(ellipse 60vw 40vh at 50% 100%, hsl(271 91% 65% / 0.10), transparent 70%),
+      radial-gradient(ellipse 40vw 30vh at 15% 0%, hsl(271 91% 65% / 0.06), transparent 70%);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Bebas Neue', 'Space Grotesk', sans-serif;
+    letter-spacing: 0.04em;
+  }
+  .text-neon {
+    color: hsl(var(--primary));
+    text-shadow: 0 0 12px hsl(var(--primary) / 0.6);
+  }
+  .glass-panel {
+    background-color: hsl(var(--matte) / 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsl(0 0% 100% / 0.08);
+  }
+  .neon-divider {
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.6), transparent);
+  }
+}
